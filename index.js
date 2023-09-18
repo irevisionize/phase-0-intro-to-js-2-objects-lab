@@ -1,37 +1,76 @@
-const employee = {
-    name: "Kris",
-    streetAddress: "Willow Street",
-  };
+// const { expect } = require("chai");
+
+// updateEmployeeWithKeyAndValue(employee, key, value); {
+//   for (const key in employee) {
+//     delete employee[key];
+//   }
+
+//   employee.name = 'Sam';
+// };
+
+
+// updateEmployeeWithKeyAndValue(employee, 'streetAddress', '11 Broadway'); {
   
-  function updateEmployeeWithKeyAndValue(employee, key, value) {
-   const newEmployee = { ...employee }; // will update this later
-   
-   newEmployee[key] = value
+//   expect(employee['streetAddress']).to.equal('11 Broadway');
+// };
 
-   return newEmployee;
-  }
 
-  function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
-    
-    employee[key] = value;
-    
-    return employee;
-  }
+// destructivelyUpdateEmployeeWithKeyAndValue(employee, 'streetAddress', '12 Broadway'); ({
+//   name: 'Sam',
+//   streetAddress: '12 Broadway'
+// });
 
-  function deleteFromEmployeeByKey(streetAddress, key) {
+// expect(employee) ({
+//   name: 'Sam',
+//   streetAddress: '12 Broadway'
+// });
 
-    delete streetAddress.key;
-    
-    const newAddress = { ...key };
+// deleteFromEmployeeByKey(employee, 'name'); {
+//   let newEmployee = deleteFromEmployeeByKey(employee, 'name');
 
-    return newAddress;
+//   (newEmployee['name']) = (undefined);
+//   (typeof newEmployee) = ('object');
+// };
 
-  }
+// deleteFromEmployeeByKey(employee, 'name'); {
+//   deleteFromEmployeeByKey(employee, 'name');
 
-  function destructivelyDeleteFromEmployeeByKey(name, key) {
+//   expect(employee['name']).to.equal('Sam');
+// };
 
-    delete name[key];
+// let newEmployee = destructivelyUpdateEmployeeWithKeyAndValue(employee, 'name'); 
+// expect(newEmployee['name']) = (undefined);
+// expect(employee['name']) = ('Sam');
 
-    return name;
+const employee =  {
+  name: ["sam"],
+  streetAddress: ["11 Broadway"]
+}
 
-  }
+function updateEmployeeWithKeyAndValue(employee, key, value) {
+
+  const updatedEmployee = { ...employee };
+ 
+  updatedEmployee[key] = value;
+  return updatedEmployee;
+}
+
+function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
+ 
+  employee[key] = value;
+  return employee;
+}
+
+function deleteFromEmployeeByKey(employee, key) {
+
+  const newEmployee = { ...employee };
+
+  delete newEmployee[key];
+  return newEmployee;
+}
+
+function destructivelyDeleteFromEmployeeByKey(employee, key) {
+
+  delete employee[key];
+  return employee;
+}
